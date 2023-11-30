@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="funciones.js"></script>
+    <title>Página con Divisores</title>
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido a !</h1>
+    </header>
+
+    <div>
+        <p>Pide lo que quieras!</p>
+    </div>
+
+    <div class="container">
+        <div class="large-division">
+            <div class="product">
+                <img src="fideos.jpg" alt="Hamburguesa" width="200">
+                <button onclick="addToCart(1)">Agregar al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="pollo.jpg" alt="Pollo frito" width="200">
+                <button onclick="addToCart(2)">Agregar al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="pizza.jpg" alt="Pizza" width="200">
+                <button onclick="addToCart(3)">Agregar al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="helado.jpg" alt="Helado de chocolate" width="200">
+                <button onclick="addToCart(4)">Agregar al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="salad.jpg" alt="Ensalada de garbanzos" width="200">
+                <button onclick="addToCart(5)">Agregar al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="pescado.jpg" alt="Pescado con verduras" width="200">
+                <button onclick="addToCart(6)">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <div class="small-division">
+            <div id="selected-buttons">
+                <h2>Botones Seleccionados</h2>
+                <ul id="selected-list"></ul>
+            </div>
+            <button id="pay-button" onclick="redirectToPayment()">Pagar</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Redirigida</title>
+</head>
+<body>
+
+<h1>Página Redirigida</h1>
+
+<script>
+    // Lee el parámetro 'suma' de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sumaTotal = urlParams.get('suma');
+
+    // Muestra la suma en la página redirigida
+    const sumaTotalElement = document.createElement('p');
+    sumaTotalElement.textContent = `Suma Total: ${sumaTotal || 0}`;
+    document.body.appendChild(sumaTotalElement);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="funciones.js"></script>
+    <title>Document</title>
+</head>
+<body class="cuerpo2">
+    <div class="loader"></div>
+
+    <div id="miElementou" class="oculto">
+        <h1>El precio a pagar es:</h1>
+        <video width="640" height="360" controls>
+            <source src="Climate Change - A Short Film [4K].mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        // Lee el parámetro 'suma' de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sumaTotal = urlParams.get('suma');
+    
+        // Muestra la suma en la página redirigida
+        const sumaTotalElement = document.createElement('p');
+        sumaTotalElement.textContent = `Suma Total: ${sumaTotal || 0}`;
+        document.body.appendChild(sumaTotalElement);
+    </script>
+
+</body>
+</html>
