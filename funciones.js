@@ -1,17 +1,11 @@
-function mostrarDespuesDe5Segundos() {
-    var miElementou = document.getElementById("miElementou");
-    miElementou.style.display = "block";
-}
-setTimeout(mostrarDespuesDe5Segundos, 3000);
-
 let selectedProducts = [];
 const productData = {
-    1: "Hamburguesa",
-    2: "Pollo frito",
-    3: "Pizza",
-    4: "Helado",
-    5: "Ensalada",
-    6: "Pescado"
+    6: "Hamburguesa",
+    4: "Pollo frito",
+    2: "Pizza",
+    3: "Helado",
+    1: "Ensalada",
+    5: "Pescado"
     // Agrega más productos según sea necesario
 };
 
@@ -40,24 +34,45 @@ function updateSelectedButtons() {
 
 function redirectToPayment() {
     const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
-    const url = `redirigida.html?suma=${sumaTotal}`;
+    const url = `pagina_redirigida.html?suma=${sumaTotal}`;
     
     // Redirige a la página de pago
     window.location.href = url;
 }
 
+function sumarNumerosBotones() {
+    const sumaTotalNumeros = selectedProducts.reduce((suma, productId) => suma + productId, 0);
+    document.getElementById('total-numeros').textContent = sumaTotalNumeros;
+}
 
-//otra pagina
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-  
-    loader.classList.add("loader--hidden");
-  
-    loader.addEventListener("transitionend", () => {
-      document.body.removeChild(loader);
-    });
-  });
+function addToCart(productId) {
+    if (!selectedProducts.includes(productId)) {
+        selectedProducts.push(productId);
+        updateSelectedButtons();
+        sumarNumerosBotones();  // Llama a la función después de agregar un producto
+    }
+}
 
+function redirectToPayment() {
+    const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
 
+    if (sumaTotal < 10) {
+        window.location.href = "pagina_redirigida_baja.html";
+    } else if (sumaTotal >= 10 && sumaTotal < 20) {
+        window.location.href = "pagina_redirigida_media.html";
+    } else {
+        window.location.href = "pagina_redirigida_alta.html";
+    }
+}
 
-  
+function redirectToPayment() {
+    const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
+
+    if (sumaTotal < 7) {
+        window.location.href = "pagina_redirigida.html";
+    } else if (sumaTotal >= 7 && sumaTotal < 14) {
+        window.location.href = "pr2.html";
+    } else {
+        window.location.href = "pr3.html";
+    }
+}

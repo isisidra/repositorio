@@ -4,6 +4,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family:Arial, Helvetica, sans-serif;
     height: 100vh;
     background-color: #de1010;
 }
@@ -65,15 +66,22 @@ body {
 .message {
     font-size: 50px;
     font-family:Arial, Helvetica, sans-serif;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     color: #ffffff;
+}
+
+.message2 {
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    color: #f9e6e6;
 }
 
 .round-button {
     
     position: absolute;
     z-index: 2;
-    bottom: 182px; /* Ajusta la posición vertical del botón */
+    bottom: 153px; /* Ajusta la posición vertical del botón */
     left: 49.9%; /* Centra el botón horizontalmente */
     transform: translateX(-50%); /* Centra el botón horizontalmente */
     display: inline-block;
