@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Cambia el color del texto según tus necesidades */
+    text-align: center;
+    animation: fondoAnimado 8s 1; /* 4.8s de fondo negro + 0.2s de GIF + 3s de fondo negro */
+}
+
+@keyframes fondoAnimado {
+    0%, 60% {
+        background-color: black;
+    }
+    60%, 62% {
+        background: url('https://media.giphy.com/media/boNzmsxVblJWo/giphy.gif') center center fixed;
+        background-size: cover;
+    }
+    62%, 100% {
+        background-color: black;
+    }
+}
+
+h1 {
+    margin-top: 50vh; /* Ajusta el margen superior según sea necesario */
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.5em;
+}

@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // No hace nada durante 10 segundos
-    setTimeout(() => {
-        // Cambia el fondo a negro durante 5 segundos
-        const contenedor = document.getElementById('contenedor');
-        contenedor.style.backgroundColor = 'black';
+    const contenedor = document.getElementById('contenedor');
+    const mensaje = document.getElementById('mensaje');
 
-        // Muestra el mensaje "Hola" después de 5 segundos
+    setTimeout(() => {
+        // Después de 1 segundo, cambia el fondo a un GIF
+        contenedor.style.background = 'url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmJ6bXp4czQzNndubGMyMXMxY3Npdjd2cDJzb2Nqazhsamt6MXF2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/boNzmsxVblJWo/giphy.gif") center center fixed';
+        contenedor.style.backgroundSize = 'cover';
+
         setTimeout(() => {
-            const mensaje = document.getElementById('mensaje');
-            mensaje.style.display = 'block';
-        }, 1000);
-    }, 6000);
+            // Después de 5 segundos, cambia el fondo a negro
+            contenedor.style.background = 'black';
+
+            setTimeout(() => {
+                mensaje.style.display = 'block';
+            }, 3500); // Ajusta el tiempo según tus necesidades
+        }, 3000); // 5 segundos para mostrar el GIF
+    }, 3000); // 1 segundo para mostrar el fondo negro
 });
 
 
