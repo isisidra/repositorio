@@ -1,11 +1,11 @@
 let selectedProducts = [];
 const productData = {
-    6: "Hamburguesa",
-    4: "Pollo frito",
-    2: "Pizza",
-    3: "Helado",
-    1: "Ensalada",
-    5: "Pescado"
+    30: "Hamburguesa",
+    20: "Pollo frito",
+    15: "Pizza",
+    13: "Helado",
+    7: "Ensalada",
+    25: "Pescado"
     // Agrega más productos según sea necesario
 };
 
@@ -68,9 +68,9 @@ function redirectToPayment() {
 function redirectToPayment() {
     const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
 
-    if (sumaTotal < 7) {
+    if (sumaTotal < 20) {
         window.location.href = "pagina_redirigida.html";
-    } else if (sumaTotal >= 7 && sumaTotal < 14) {
+    } else if (sumaTotal >= 20 && sumaTotal < 60) {
         window.location.href = "pr2.html";
     } else {
         window.location.href = "pr3.html";
