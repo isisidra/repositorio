@@ -1,72 +1,45 @@
-let selectedProducts = [];
+let selectedProducts = {};
 const productData = {
-    30: "Hamburguesa",
-    20: "Pollo frito",
-    15: "Pizza",
-    13: "Helado",
-    7: "Ensalada",
-    25: "Pescado"
+    6: "Hamburguesa",
+    4: "Pollo frito",
+    2: "Pizza",
+    3: "Helado",
+    1: "Ensalada",
+    5: "Pescado"
     // Agrega más productos según sea necesario
 };
 
 function addToCart(productId) {
-    if (!selectedProducts.includes(productId)) {
-        selectedProducts.push(productId);
-        updateSelectedButtons();
+    if (!selectedProducts[productId]) {
+        selectedProducts[productId] = 1; // Inicializa la cantidad a 1 si es la primera vez que se agrega
+    } else {
+        selectedProducts[productId]++; // Incrementa la cantidad si ya estaba en el carro
     }
+
+    updateSelectedButtons();
 }
 
 function updateSelectedButtons() {
     const selectedButtonsElement = document.getElementById('selected-buttons');
-    selectedButtonsElement.innerHTML = '<h2>Botones Seleccionados</h2>';
+    selectedButtonsElement.innerHTML = '<h2>Tu orden</h2>';
     
     let sumaTotal = 0;
 
-    for (const productId of selectedProducts) {
+    for (const productId in selectedProducts) {
         const buttonElement = document.createElement('div');
         const productName = productData[productId] || "Producto Desconocido";
-        buttonElement.textContent = `Producto: ${productName}`;
+        const quantity = selectedProducts[productId];
+        buttonElement.textContent = `Producto: ${productName} x${quantity}`;
         selectedButtonsElement.appendChild(buttonElement);
-        // Suma el valor del producto
-        sumaTotal += productId;
+        // Suma el valor del producto multiplicado por la cantidad
+        sumaTotal += productId * quantity;
     }
+
+    sumarNumerosBotones(sumaTotal);
 }
 
 function redirectToPayment() {
-    const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
-    const url = `pagina_redirigida.html?suma=${sumaTotal}`;
-    
-    // Redirige a la página de pago
-    window.location.href = url;
-}
-
-function sumarNumerosBotones() {
-    const sumaTotalNumeros = selectedProducts.reduce((suma, productId) => suma + productId, 0);
-    document.getElementById('total-numeros').textContent = sumaTotalNumeros;
-}
-
-function addToCart(productId) {
-    if (!selectedProducts.includes(productId)) {
-        selectedProducts.push(productId);
-        updateSelectedButtons();
-        sumarNumerosBotones();  // Llama a la función después de agregar un producto
-    }
-}
-
-function redirectToPayment() {
-    const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
-
-    if (sumaTotal < 10) {
-        window.location.href = "pagina_redirigida_baja.html";
-    } else if (sumaTotal >= 10 && sumaTotal < 20) {
-        window.location.href = "pagina_redirigida_media.html";
-    } else {
-        window.location.href = "pagina_redirigida_alta.html";
-    }
-}
-
-function redirectToPayment() {
-    const sumaTotal = selectedProducts.reduce((suma, productId) => suma + productId, 0);
+    const sumaTotal = Object.entries(selectedProducts).reduce((suma, [productId, quantity]) => suma + productId * quantity, 0);
 
     if (sumaTotal < 20) {
         window.location.href = "pagina_redirigida.html";
@@ -75,4 +48,8 @@ function redirectToPayment() {
     } else {
         window.location.href = "pr3.html";
     }
+}
+
+function sumarNumerosBotones(sumaTotal) {
+    document.getElementById('total-numeros').textContent = sumaTotal;
 }
