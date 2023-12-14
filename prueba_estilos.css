@@ -81,7 +81,7 @@ body {
     
     position: absolute;
     z-index: 2;
-    bottom: 153px; /* Ajusta la posición vertical del botón */
+    bottom: 238.5px; /* Ajusta la posición vertical del botón */
     left: 49.9%; /* Centra el botón horizontalmente */
     transform: translateX(-50%); /* Centra el botón horizontalmente */
     display: inline-block;
