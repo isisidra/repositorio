@@ -41,9 +41,9 @@ function updateSelectedButtons() {
 function redirectToPayment() {
     const sumaTotal = Object.entries(selectedProducts).reduce((suma, [productId, quantity]) => suma + productId * quantity, 0);
 
-    if (sumaTotal < 20) {
+    if (sumaTotal < 10) {
         window.location.href = "pagina_redirigida.html";
-    } else if (sumaTotal >= 20 && sumaTotal < 60) {
+    } else if (sumaTotal >= 10 && sumaTotal < 20) {
         window.location.href = "pr2.html";
     } else {
         window.location.href = "pr3.html";
